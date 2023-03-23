@@ -13,7 +13,7 @@ func chat(event event.Event) error {
 		return err
 	}
 
-	channel, err := node.Channel("/chatendpoint")
+	channel, err := node.Channel("/chat")
 	if err != nil {
 		return err
 	}
