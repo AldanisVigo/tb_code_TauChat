@@ -2,13 +2,14 @@ package lib
 
 import (
 	"fmt"
+
 	"github.com/taubyte/go-sdk/event"
 	"github.com/taubyte/go-sdk/pubsub/node"
 )
 
 func chat(event event.Event) error {
 	h, err := event.HTTP()
-	
+
 	if err != nil {
 		return err
 	}
@@ -23,7 +24,9 @@ func chat(event event.Event) error {
 		return err
 	}
 
-	_, err = h.Write([]byte("{\"socket\":"\"" + url.Path + "\"}"))
+	fmt.Println("SOCKET URL ==> ", url)
+
+	_, err = h.Write([]byte("{\"socket\":\"" + url.Path + "\"}"))
 	if err != nil {
 		return err
 	}
@@ -32,8 +35,9 @@ func chat(event event.Event) error {
 
 }
 
-func chatendpoint(e event.Event) uint32 {
-	h, err :=  event.HTTP()
+//export chatendpoint
+func Chatendpoint(e event.Event) uint32 {
+	h, err := e.HTTP()
 
 	if err != nil {
 		h.Write([]byte(fmt.Sprintf("ERROR: %s\n", err)))
