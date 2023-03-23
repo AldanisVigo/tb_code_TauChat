@@ -3,4 +3,4 @@ environment:
 	image: taubyte/go-wasi:latest
 	variables:
 workflow:
-	-build
+	- build
