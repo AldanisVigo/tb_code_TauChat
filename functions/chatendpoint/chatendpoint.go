@@ -36,6 +36,8 @@ func chat(event event.Event) error {
 func Chatendpoint(e event.Event) uint32 {
 	h, err := e.HTTP()
 
+	h.Write([]byte("{\"working\" : \"I am working!\""))
+
 	if err != nil {
 		h.Write([]byte(fmt.Sprintf("ERROR: %s\n", err)))
 	}
