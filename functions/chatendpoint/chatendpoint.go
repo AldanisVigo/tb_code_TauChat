@@ -24,8 +24,6 @@ func chat(event event.Event) error {
 		return err
 	}
 
-	fmt.Println("SOCKET URL ==> ", url)
-
 	_, err = h.Write([]byte("{\"socket\":\"" + url.Path + "\"}"))
 	if err != nil {
 		return err
