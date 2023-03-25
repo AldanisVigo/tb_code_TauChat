@@ -35,7 +35,7 @@ func chat(event event.Event) error {
 }
 
 //export chatendpoint
-func chatendpoint(e event.Event) uint32 {
+func Chatendpoint(e event.Event) uint32 {
 	h, err := e.HTTP()
 
 	if err != nil {
