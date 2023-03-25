@@ -10,8 +10,6 @@ import (
 func chat(e event.Event) error {
 	h, err := e.HTTP()
 
-	h.Write([]byte("{\"workin_still\" : \"Yuuup still working\"}"))
-
 	if err != nil {
 		return err
 	}
@@ -37,8 +35,6 @@ func chat(e event.Event) error {
 //export chatendpoint
 func Chatendpoint(e event.Event) uint32 {
 	h, err := e.HTTP()
-
-	h.Write([]byte("{\"working\" : \"I am working!\"}"))
 
 	if err != nil {
 		h.Write([]byte(fmt.Sprintf("ERROR: %s\n", err)))
