@@ -10,6 +10,8 @@ import (
 func chat(e event.Event) error {
 	h, err := e.HTTP()
 
+	h.Write([]byte("{\"workin_still\" : \"Yuuup still working\"}"))
+
 	if err != nil {
 		return err
 	}
