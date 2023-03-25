@@ -7,8 +7,8 @@ import (
 	"github.com/taubyte/go-sdk/pubsub/node"
 )
 
-func chat(event event.Event) error {
-	h, err := event.HTTP()
+func chat(e event.Event) error {
+	h, err := e.HTTP()
 
 	if err != nil {
 		return err
@@ -36,7 +36,7 @@ func chat(event event.Event) error {
 func Chatendpoint(e event.Event) uint32 {
 	h, err := e.HTTP()
 
-	h.Write([]byte("{\"working\" : \"I am working!\""))
+	h.Write([]byte("{\"working\" : \"I am working!\"}"))
 
 	if err != nil {
 		h.Write([]byte(fmt.Sprintf("ERROR: %s\n", err)))
