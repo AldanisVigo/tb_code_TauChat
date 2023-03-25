@@ -32,7 +32,6 @@ func chat(event event.Event) error {
 	}
 
 	return nil
-
 }
 
 //export chatendpoint
